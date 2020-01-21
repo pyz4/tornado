@@ -32,6 +32,9 @@ import asyncio
 import typing
 from typing import Any, TypeVar, Awaitable, Callable, Union, Optional
 
+if sys.platform == 'win32':
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
 if typing.TYPE_CHECKING:
     from typing import Set, Dict, Tuple  # noqa: F401
 
